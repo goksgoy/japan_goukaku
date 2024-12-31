@@ -1,7 +1,7 @@
 <html lang="ja">
  <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
    JAPAN GOUKAKU
   </title>
@@ -14,61 +14,90 @@
             background-color: #f5f5f5;
         }
 
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: white;
-            flex-wrap: wrap;
-        }
-        .header img {
-            height: 50px;
-        }
-        .header .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .header .nav-links a {
-            text-decoration: none;
-            color: black;
-            font-size: 16px;
-        }
+   .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: white;
+      flex-wrap: wrap;
+    }
 
-        .header .auth-buttons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .header .auth-buttons button {
-            padding: 10px 20px;
-            border: 2px solid green;
-            border-radius: 20px;
-            background-color: white;
-            color: green;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .header .auth-buttons button.register {
-            background-color: green;
-            color: white;
-        }
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header .nav-links {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
+    .header img {
+      height: 50px;
+    }
 
-            .header .auth-buttons {
-                margin-top: 10px;
-            }
-        }
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-size: 16px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icons a {
+      color: green;
+      font-size: 24px;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons button {
+      padding: 10px 20px;
+      border: 2px solid green;
+      border-radius: 20px;
+      background-color: white;
+      color: green;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .auth-buttons .register {
+      background-color: green;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links, .social-icons, .auth-buttons {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        gap: 10px;
+      }
+
+      .nav-links a, .auth-buttons button {
+        width: 100%;
+        text-align: center;
+      }
+
+      .header.active .nav-links,
+      .header.active .social-icons,
+      .header.active .auth-buttons {
+        display: flex;
+      }
+    }
    
         .content {
             display: flex;
@@ -104,19 +133,32 @@
   </style>
  </head>
  <body>
-    <div class="header">
-   <img alt="Japanese text logo with a small character" height="50" src="https://storage.googleapis.com/a1aa/image/qsVrzDvnfd2UUShbwTsPKbqdLgfElT8pMffTmeAvrbLkZPCgC.jpg" width="100"/>
-   <div class="nav-links">
-    <a href="#">
-     Testimoni
-    </a>
-   </div>
-   <div class="auth-buttons">
-    <button class="register">
-     Daftar
-    </button>
-   </div>
+      <div class="header">
+    <img src="https://storage.googleapis.com/a1aa/image/qsVrzDvnfd2UUShbwTsPKbqdLgfElT8pMffTmeAvrbLkZPCgC.jpg" alt="Logo">
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links">
+      <a href="#">日本語の森とは？</a>
+      <a href="#">本</a>
+      <a href="#">プラン</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+    <div class="auth-buttons">
+      <button>ログイン</button>
+      <button class="register">登録</button>
+    </div>
   </div>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.header').classList.toggle('active');
+    }
+  </script>
   <main class="content">
    <a class="card" href="#">
     <img alt="JLPT N1 Book Cover" height="100" src="https://storage.googleapis.com/a1aa/image/tnnszvY9uJqvGtgryrq3JkEfVAi7HCb4JOi5YCMO0Q4K1IAKA.jpg" width="100"/>
